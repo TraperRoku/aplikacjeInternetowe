@@ -1,0 +1,107 @@
+body {
+    font-family: 'Verdana', sans-serif;
+    line-height: 1.8;
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    color: #e0e0e0;
+}
+p{
+    color: #1e1e1e;
+}
+
+header, footer {
+    background-color: #000;
+    color: #fff;
+    padding: 30px 40px;
+    border-bottom: 5px solid #00bfff;
+}
+
+h1 {
+    font-size: 3em;
+    font-weight: 300;
+    letter-spacing: 1px;
+
+}
+
+h2 {
+    color: #00bfff;
+    padding-bottom: 5px;
+    margin-top: 40px;
+}
+
+h3 {
+    color: #717149;
+    border-bottom: 1px dashed #333;
+    padding-bottom: 5px;
+}
+
+main {
+    max-width: 1400px;
+    margin: 30px auto;
+    padding: 0 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+section {
+    flex: 1 1 30%;
+    min-width: 300px;
+    background-color: #1e1e1e;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+#galeria {
+    flex: 1 1 100%;
+    text-align: center;
+}
+
+article {
+    margin-bottom: 25px;
+    border-left: 2px solid #00bfff;
+    padding-left: 15px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border: 3px solid #00bfff;
+    border-radius: 5px;
+}
+#powiatanie{
+    color: #cc9900;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+ul  {
+    padding: 5px 0;
+    border-bottom: 1px dotted #333;
+}
+li{
+    margin-left: 10px;
+    color: #ddc307;
+}
+
+@media (max-width: 768px) {
+    section {
+        flex: 1 1 100%;
+        padding: 20px;
+    }
+
+    header {
+        padding: 20px 10px;
+        text-align: left;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+}
