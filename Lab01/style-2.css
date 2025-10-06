@@ -8,6 +8,8 @@ body {
 }
 p{
     color: #1e1e1e;
+    font-weight: 300;
+    letter-spacing: 1px;
 }
 
 header, footer {
