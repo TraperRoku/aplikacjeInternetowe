@@ -1,0 +1,203 @@
+/* Plik: styles.css */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 40px;
+    background-color: #f4f7f6;
+    color: #333;
+    background-image: url('rose.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+}
+
+h1 {
+    color: #007bff;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+}
+
+#search-container {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#search-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Zapewnia, że padding nie zwiększa szerokości */
+}
+
+
+#add-task-container {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);
+}
+
+#new-task-input,
+#new-task-deadline {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    flex-grow: 1;
+    min-width: 150px;
+}
+
+#add-task-btn {
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    white-space: nowrap;
+}
+
+#add-task-btn:hover {
+    background-color: #218838;
+}
+
+#task-list {
+    list-style-type: none;
+    padding: 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#task-list li {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: default; /* Zmiana kursora */
+    transition: background-color 0.2s;
+}
+
+.task-content-container {
+    flex-grow: 1; /* Pozwala na zajęcie przestrzeni */
+    cursor: pointer; /* Kursor dla klikalnego tekstu/kontenera */
+    display: flex; /* Użyteczne dla wyrównania wewnętrznych elementów */
+    align-items: center;
+}
+
+.edit-fields-wrapper {
+    display: flex;
+    flex-grow: 1;
+    gap: 5px; /* Mała przerwa między polami tekstowymi a datą */
+    margin-right: 10px; /* Odstęp od przycisku Usuń */
+}
+
+/* STYL DLA POLA EDYCJI TEKSTU */
+.edit-input {
+    flex-grow: 2; /* Nieco większa waga dla pola tekstowego */
+    padding: 5px;
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    font-size: 1em;
+    min-width: 100px;
+}
+
+/* STYL DLA POLA EDYCJI DATY */
+.edit-deadline {
+    flex-grow: 1;
+    padding: 5px;
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    font-size: 1em;
+    min-width: 150px;
+}
+
+/* ... (Reszta pliku stylesheet.css, upewnij się, że .task-content-container ma display: flex) ... */
+.task-content-container {
+    flex-grow: 1;
+    cursor: pointer;
+    display: flex; /* WAŻNE: Wymagane do poprawnego działania flexbox */
+    align-items: center;
+    justify-content: space-between; /* Pomaga rozłożyć tekst i termin */
+}
+
+#task-list li:hover {
+    background-color: #f0f8ff;
+}
+
+#task-list li:last-child {
+    border-bottom: none;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: #888;
+    background-color: #e9ecef;
+}
+
+.deadline-text {
+    font-size: 0.85em;
+    color: #007bff;
+    font-weight: normal;
+    margin-left: 15px;
+    white-space: nowrap;
+}
+
+.highlight {
+    background-color: #ffc107;
+    padding: 2px 0;
+    font-weight: bold;
+    border-radius: 2px;
+}
+
+.edit-input {
+    flex-grow: 1;
+    padding: 5px;
+    margin-right: 10px;
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background-color 0.3s;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+}
+.save-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background-color 0.3s;
+    margin-left: 5px; /* Odstęp od pól input */
+    white-space: nowrap;
+}
+
+.save-btn:hover {
+    background-color: #0056b3;
+}
