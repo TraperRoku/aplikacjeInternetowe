@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return result;
     }
 
-    // ZMODYFIKOWANA FUNKCJA ZAPISU I WALIDACJI (z buforem czasowym)
+
     function saveEdit(index, listItem) {
         const textInput = listItem.querySelector('.edit-input');
         const deadlineInput = listItem.querySelector('.edit-deadline');
@@ -73,10 +73,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const newText = textInput.value.trim();
         const newDeadline = deadlineInput.value;
 
-        // Pobieramy oryginalną datę zadania
+
         const originalDeadline = tasks[index].deadline;
 
-        // --- WALIDACJA TEKSTU ---
         if (newText.length < 3) {
             alert("Treść zadania musi mieć co najmniej 3 znaki.");
             textInput.focus();
@@ -88,16 +87,16 @@ document.addEventListener('DOMContentLoaded', () => {
             return false;
         }
 
-        // --- WALIDACJA DATY ---
+   
         if (newDeadline) {
-            // KLUCZOWA ZMIANA: Jeśli nowa data jest identyczna z pierwotną, pomijamy walidację czasu.
+      
             if (newDeadline !== originalDeadline) {
 
                 const selectedDate = new Date(newDeadline);
                 const now = new Date();
-                const futureBuffer = 60000; // 60 sekund
+                const futureBuffer = 60000; 
 
-                // Walidacja jest uruchamiana tylko, jeśli data została zmieniona
+               
                 if (selectedDate.getTime() < now.getTime() + futureBuffer) {
                     alert("Termin wykonania zadania musi być co najmniej 60 sekund w przyszłości.");
                     deadlineInput.focus();
@@ -106,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // --- ZAPIS ZMIAN ---
+   
         tasks[index].text = newText;
         tasks[index].deadline = newDeadline;
         currentEditingIndex = null;
@@ -136,25 +135,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (currentEditingIndex === index) {
 
-                // --- TRYB EDYCJI ---
+      
                 const editFieldsWrapper = document.createElement('div');
                 editFieldsWrapper.classList.add('edit-fields-wrapper');
 
-                // 1. Edycja tekstu
+         
                 const editInput = document.createElement('input');
                 editInput.type = 'text';
                 editInput.value = task.text;
                 editInput.classList.add('edit-input');
                 editFieldsWrapper.appendChild(editInput);
 
-                // 2. Edycja daty/czasu
+        
                 const editDeadline = document.createElement('input');
                 editDeadline.type = 'datetime-local';
                 editDeadline.value = task.deadline;
                 editDeadline.classList.add('edit-deadline');
                 editFieldsWrapper.appendChild(editDeadline);
 
-                // 3. Przycisk ZAPISZ (NOWOŚĆ)
+               
                 const saveBtn = document.createElement('button');
                 saveBtn.textContent = 'Zapisz';
                 saveBtn.classList.add('save-btn');
@@ -171,7 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     editInput.select();
                 }, 0);
 
-                // Zapis po naciśnięciu ENTER
+            
                 editInput.addEventListener('keypress', (e) => {
                     if (e.key === 'Enter') {
                         saveEdit(index, listItem);
@@ -187,7 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             } else {
 
-                // --- TRYB WYŚWIETLANIA ---
+    
                 const textSpan = document.createElement('span');
                 textSpan.innerHTML = highlightText(task.text, searchInput.value);
 
@@ -197,23 +196,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 taskContentContainer.appendChild(textSpan);
 
-                // NOWA LOGIKA: Pojedyncze kliknięcie przełącza w tryb edycji
+               
                 taskContentContainer.addEventListener('click', (e) => {
                     e.stopPropagation();
 
-                    // Jeśli task jest ukończony, pojedyncze kliknięcie zmieni jego status.
+             
                     if (task.completed) {
                         tasks[index].completed = false;
                         saveTasks();
                         renderTasks();
                     } else {
-                        // Jeśli nie jest ukończony, wejdź w tryb edycji
                         currentEditingIndex = index;
                         renderTasks();
                     }
                 });
 
-                // DODATKOWA LOGIKA: Przełączanie statusu ukończenia przez podwójne kliknięcie
                 taskContentContainer.addEventListener('dblclick', (e) => {
                     e.stopPropagation();
                     tasks[index].completed = !tasks[index].completed;
@@ -225,7 +222,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             listItem.appendChild(taskContentContainer);
 
-            // Przycisk usuwania
             const deleteBtn = document.createElement('button');
             deleteBtn.textContent = 'Usuń';
             deleteBtn.classList.add('delete-btn');
@@ -242,10 +238,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ***************************************************************
-    // USUNIĘTO WSZYSTKIE PROBLEMATYCZNE LISTENERY 'click' I 'blur'.
-    // Zapis odbywa się tylko przez przycisk "Zapisz" lub naciśnięcie "Enter".
-    // ***************************************************************
 
     function applySearchFilter() {
         renderTasks();
@@ -253,7 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     searchInput.addEventListener('input', applySearchFilter);
 
-    // ZMODYFIKOWANA FUNKCJA DODAWANIA (z buforem czasowym)
+
     function addTask() {
         const text = newTaskInput.value.trim();
         const deadline = newDeadlineInput.value;
@@ -273,7 +265,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const selectedDate = new Date(deadline);
             const now = new Date();
 
-            const futureBuffer = 60000; // 60 sekund
+            const futureBuffer = 60000; 
 
             if (selectedDate.getTime() < now.getTime() + futureBuffer) {
                 alert("Termin wykonania zadania musi być co najmniej 60 sekund w przyszłości, aby uniknąć problemów z zapisem i strefami czasowymi.");
