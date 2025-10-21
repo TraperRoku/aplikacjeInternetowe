@@ -1,17 +1,30 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PUZZLE!</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PUZZLE!</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
-
 <h1>PUZZLE!</h1>
-<p>Ten tekst pochodzi z pliku HTML.</p>
 <p id="komunikat"></p>
+<p id="komunikat-powiadomienia"></p>
+<button id="loc-btn">Moja lokalizacja</button>
+<button id="export-btn">Pobierz mapę (PNG)</button>
+<button id="raster-btn">Save raster Map</button>
 
+<div class="layout">
+    <div id="map" aria-label="Mapa interaktywna"></div>
+    <div class="right-column">
+        <div id="board" aria-label="Plansza puzzle"></div>
+        <div id="stol" aria-label="Stół z kafelkami"></div>
+    </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-image/leaflet-image.js"></script>
 <script src="script.js"></script>
-
 </body>
 </html>
