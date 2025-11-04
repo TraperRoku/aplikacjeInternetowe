@@ -1,0 +1,56 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4;
+    height: 80vh;
+
+}
+
+h1, h2 {
+    color: #333;
+    margin: 10px;
+    height: 6vh;
+}
+
+.search-container {
+    margin-bottom: 20px;
+}
+
+#locationInput {
+    padding: 8px;
+    width: 250px;
+}
+
+#weatherButton {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+#resultsContainer {
+    display: none; 
+}
+
+#currentWeather, #forecast {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 25px;
+    margin-top: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    width: 300px;
+    margin-left: 10px;
+    margin-right: auto;
+    
+}
+
+.forecast-item {
+    border-bottom: 1px dashed #ccc;
+    padding: 10px 0;
+}
+
+.forecast-item:last-child {
+    border-bottom: none;
+}

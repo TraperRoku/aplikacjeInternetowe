@@ -27,29 +27,27 @@ function getCurrentWeather(location) {
 
     const xhr = new XMLHttpRequest();
     xhr.open('GET', url, true);
-
     xhr.onload = function() {
+
         if (this.status === 200) {
             const response = JSON.parse(this.responseText);
-            console.log('Odpowiedź z Current Weather (XHR):', response);
+            console.log('Odpowiedź z Current Weather:', response);
             displayCurrentWeather(response);
         } else {
-            console.error('Błąd Current Weather (XHR):', this.status, this.statusText);
-            currentWeatherDiv.innerHTML = `Nie udało się pobrać danych (Błąd: ${this.status}).`;
+            console.error('Błąd:', this.status, this.statusText);
+            currentWeatherDiv.innerHTML = `Nie udało się pobrać danych Bład: ${this.status}).`;
         }
     };
 
     xhr.onerror = function() {
-        console.error('Błąd sieci (XHR)');
+        console.error('Błąd sieciowy.');
         currentWeatherDiv.innerHTML = 'Błąd sieci.';
     };
-
     xhr.send();
 }
 
 function getForecast(location) {
     const url = `https://api.openweathermap.org/data/2.5/forecast?q=${location}&appid=${apiKey}&units=metric&lang=pl`;
-
     fetch(url)
         .then(response => {
             if (!response.ok) {
